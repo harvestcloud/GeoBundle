@@ -32,4 +32,17 @@ class LatLngTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(5, $latLng->getLatitude());
         $this->assertEquals(10, $latLng->getLongitude());
     }
+
+    /**
+     * testToString()
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-04-02
+     */
+    public function testToString()
+    {
+        $latLng = new LatLng(5,10);
+
+        $this->assertEquals('5, 10', (string) $latLng);
+    }
 }
