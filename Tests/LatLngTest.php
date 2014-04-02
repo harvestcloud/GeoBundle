@@ -58,4 +58,17 @@ class LatLngTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('5, 10', $latLng->getMapLabel());
     }
+
+    /**
+     * testLatitudeTooGreatException()
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-04-02
+     *
+     * @expectedException InvalidArgumentException
+     */
+    public function testLatitudeTooGreatException()
+    {
+        $latLng = new LatLng(100, 10);
+    }
 }

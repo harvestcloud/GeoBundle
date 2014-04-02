@@ -39,6 +39,10 @@ class LatLng implements GeolocatableInterface
      */
     public function __construct($latitude, $longitude)
     {
+        if ($latitude > 90) {
+            throw new \InvalidArgumentException('Latidue must not be greater than 90');
+        }
+
         $this->latitude  = $latitude;
         $this->longitude = $longitude;
     }
