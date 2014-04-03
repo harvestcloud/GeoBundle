@@ -71,4 +71,17 @@ class LatLngTest extends \PHPUnit_Framework_TestCase
     {
         $latLng = new LatLng(100, 10);
     }
+
+    /**
+     * testLatitudeTooSmallException()
+     *
+     * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
+     * @since  2014-04-02
+     *
+     * @expectedException InvalidArgumentException
+     */
+    public function testLatitudeTooSmallException()
+    {
+        $latLng = new LatLng(10, 181);
+    }
 }

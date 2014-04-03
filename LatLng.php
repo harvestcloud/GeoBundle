@@ -32,15 +32,26 @@ class LatLng implements GeolocatableInterface
      *
      * @author Tom Haskins-Vaughan <tom@harvestcloud.com>
      * @since  2012-05-02
-     * @todo   Do some validation on the input
      *
      * @param  float  $latitude
      * @param  float  $longitude
      */
     public function __construct($latitude, $longitude)
     {
-        if ($latitude > 90) {
-            throw new \InvalidArgumentException('Latidue must not be greater than 90');
+        if ((float) $latitude > 90) {
+            throw new \InvalidArgumentException('Latitude must not be greater than 90');
+        }
+
+        if ((float) $latitude < -90) {
+            throw new \InvalidArgumentException('Latitude must not be less than -90');
+        }
+
+        if ((float) $longitude > 180) {
+            throw new \InvalidArgumentException('Longitude must not be greater than 180');
+        }
+
+        if ((float) $longitude < -180) {
+            throw new \InvalidArgumentException('Longitude must not be less than -180');
         }
 
         $this->latitude  = $latitude;
